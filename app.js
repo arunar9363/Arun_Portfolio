@@ -219,38 +219,6 @@
         animateSkillBars();
     });
 
-    // Add touch support for mobile devices
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    document.addEventListener('touchstart', function(e) {
-        touchStartY = e.changedTouches[0].screenY;
-    });
-
-    document.addEventListener('touchend', function(e) {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipeGesture();
-    });
-
-    function handleSwipeGesture() {
-        const swipeThreshold = 50;
-        const swipeDistance = touchStartY - touchEndY;
-        
-        if (Math.abs(swipeDistance) > swipeThreshold) {
-            const controls = document.querySelectorAll('.control');
-            const activeControl = document.querySelector('.control.active-btn');
-            const currentIndex = Array.from(controls).indexOf(activeControl);
-            
-            if (swipeDistance > 0 && currentIndex < controls.length - 1) {
-                // Swipe up - next section
-                controls[currentIndex + 1].click();
-            } else if (swipeDistance < 0 && currentIndex > 0) {
-                // Swipe down - previous section
-                controls[currentIndex - 1].click();
-            }
-        }
-    }
-
     // Add loading states for external links
     document.querySelectorAll('a[href^="http"]').forEach(link => {
         link.addEventListener('click', function() {
