@@ -1177,3 +1177,262 @@ section {
         font-size: 4rem;
     }
 }
+
+/* --- Services Section Styling --- */
+
+/* 1. Open to Work Banner Container */
+.open-to-work-banner {
+    background-color: var(--color-grey-5);
+    border: 2px solid var(--color-secondary); /* Green Border */
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.15);
+    position: relative;
+    overflow: hidden; /* Keeps everything inside the box */
+}
+
+.open-to-work-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+}
+
+/* 2. Badge Section (Left) */
+.otw-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px; /* Gives space for the ring */
+}
+
+/* THE RING - Fixed Size for Image */
+.profile-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Gradient Green Ring like LinkedIn */
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    padding: 4px; /* Thickness of the green ring */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden; /* CRITICAL: Crops the image to circle */
+}
+
+/* THE IMAGE inside the ring */
+.profile-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures image fills circle without stretching */
+    border: 3px solid var(--color-grey-5); /* Grey border between image and green ring */
+    background-color: var(--color-grey-5);
+}
+
+.otw-tag {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    background: rgba(46, 204, 113, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* 3. Banner Text Content */
+.otw-content {
+    flex: 1;
+}
+
+.otw-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-white);
+}
+
+.otw-content p {
+    color: var(--color-grey-2);
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.otw-status {
+    color: var(--color-secondary) !important;
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+.port-text {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 4rem; /* Yahan maine space badha diya hai */
+}
+
+/* 4. Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.service-card {
+    background-color: var(--color-grey-5);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 1px 1px 20px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-secondary);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--color-white);
+}
+
+/* 5. Form Styling - Full Width & Clean */
+.input-box-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-box-vertical input, 
+.service-select,
+.service-form textarea {
+    border-radius: 30px;
+    padding: 1rem 1.5rem;
+    outline: none;
+    border: none;
+    background-color: var(--color-grey-5);
+    width: 100%;
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: inherit;
+    resize: none;
+}
+
+.input-box-vertical input:focus,
+.service-select:focus,
+.service-form textarea:focus {
+    box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+/* 6. Buttons & WhatsApp */
+.form-buttons-con {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: #25D366;
+    color: #fff !important;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 1px solid #25D366;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    background-color: transparent;
+    color: #25D366 !important;
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 900px) {
+    .open-to-work-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    .otw-badge {
+        margin-bottom: 1rem;
+    }
+    .services-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .form-buttons-con {
+        flex-direction: column;
+        width: 100%;
+    }
+    .submit-btn, .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* --- LinkedIn Button Styling --- */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #0077b5; /* LinkedIn Official Blue */
+    color: #fff !important;
+    padding: 0.6rem 1.2rem; /* Thoda compact rakha hai taaki banner mein fit ho */
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #0077b5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.linkedin-btn:hover {
+    background-color: transparent;
+    color: #0077b5 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+}
+
+.linkedin-btn i {
+    font-size: 1.1rem;
+}
+
+/* Mobile responsive fix for the banner button */
+@media screen and (max-width: 900px) {
+    .linkedin-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
